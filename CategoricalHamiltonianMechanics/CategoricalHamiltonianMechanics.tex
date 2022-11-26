@@ -13,6 +13,33 @@
 \begin{multicols}{2}
 	\section{Hamiltonian mechanics}
 	%% A short review on Hamiltonian mechanics to familiarise a mathematical audience
+	In this first section, we will shortly review the basic concepts of Hamiltonian mechanics. Let us start by defining some Euclidean space \(\R^n\), which we will refer to as ``position space''. Additionally, we want to define a ``momentum space'', which is also equal to \(\R^n\).
+	Together, these two spaces form phase space \(\R^{2n}\), whose coordinates are given by \(q_1,\,\dots,\,q_n,\,p_1,\,\dots,\,p_n\). In classical mechanics, we use this phase space to describe the motion of objects. This is achieved using a path \(\gamma:\ \R\to\R^{2n}\), such that \(\gamma(t)\) gives us both a position and a momentum (N.B.: the domain of these paths represent time).
+	Not every path is a possible one. In fact, to ensure determinism, we should only allow there to exist one path to pass through any given point.\\
+	How do we find the unique path? The answer lies in the Hamiltonian, a continuously differentiable function \(H:\ \R^{2n}\to\R\), which can be understood as assigning to each point in phase space the energy associated with it (the Hamiltonian is equal to the total energy more often than not).
+	Hamiltonian mechanics supplies us with a powerful tool for finding the unique path. For any continuously differentiable function \(f:\ \R^{2n}\to\R\), we have that
+	\begin{equation}
+		\dv{(f\circ\gamma)}{t} = \left.\sum_{i=1}^n \pdv{f}{q_i}\pdv{H}{p_i} - \pdv{f}{p_i}\pdv{H}{q_i}\right|_{\gamma} =: \{f,\,H\}\circ\gamma.
+	\end{equation}
+	\(\{\cdot,\ \cdot\}\) is called the Poisson bracket, and is an important tool in Hamiltonian mechanics.
+	Now, to get equations of motion for our path \(\gamma\), we can choose \(f\) to be our coordinates \(q_i\) and \(p_i\). This gives us a set of \(2n\) first-order differential equations
+	\begin{equation}
+		\dv{(q_i\circ\gamma)}{t} = \{q_i,\,H\}\circ\gamma = \pdv{H}{p_i}\circ\gamma,
+	\end{equation}
+	\begin{equation}
+		\dv{(p_i\circ\gamma)}{t} = \{p_i,\,H\}\circ\gamma = -\pdv{H}{q_i}.
+	\end{equation}
+	These are known as Hamilton's equations.\\
+	To give an example of how to use these equations, consider a particle in \(n\) dimensions moving around freely without a potential energy.
+	The Hamiltonian in this case is given by \(H = \sum_{i=1}^n\frac{{p_i}^2}{2m}\), where \(m\) is te particle's mass. We then find Hamilton's equations to be
+	\begin{equation}
+		\dv{q_i\circ\gamma}{t} = \frac{p_i\circ\gamma}{m},
+	\end{equation}
+	\begin{equation}
+		\dv{p_i\circ\gamma}{t} = 0.
+	\end{equation}
+	Therefore, if the particle starts with some momentum \(\vec{p}\), it must conserve that value over the entire path.
+	Moreover, the position of the particle over time is given by \(\vec{x}(\gamma(t)) = \frac{\vec{p}}{m}t\). This gives us our path.
 	%
 	\section{Symplectic geometry}
 	%% An introduction to using symplectic geometry to generalise the concept of Hamiltonian mechanics
