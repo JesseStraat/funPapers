@@ -44,6 +44,30 @@
 	%
 	\section{Symplectic geometry}
 	%% An introduction to using symplectic geometry to generalise the concept of Hamiltonian mechanics
+	We would now like to generalise the concepts of Hamiltonian mechanics to other manifolds, rather than just Euclidean space. One way of doing this is through symplectic manifolds.
+	\begin{definition}
+		A symplectic manifold \((M,\,\omega)\) is a pair consisting of a differentiable manifold \(M\) and a non-degenerate \(2\)-form \(\omega\) on \(M\). We say that \(\omega\) is the symplectic form of the symplectic manifold.
+	\end{definition}
+	Let us dissect this definition. The symplectic form \(\omega\) is a \(2\)-form on \(M\). This means that it is an asymmetric bilinear map that takes two vector fields \(V,\,W\in\mathfrak{X}(M)\) on \(M\), and maps them to some differentiable real function on \(M\). Moreover, since it is non-degenerate, we know that if \(\omega(V,W) = 0\) for all \(V\), then \(W=0\).
+	This sounds a lot like the the Poisson bracket, which was an asymmetric bilinear map that takes two real functions \(f,\,g\) on \(\R^{2n}\), and maps them to another real function on \(\R^{2n}\). Moreover, if \(\{f,\,g\}=0\) for all \(f\), then \(g\) had to be constant.
+	In fact, from the symplectic form, we can derive an object with the same properties as the Poisson bracket
+	% TODO: What other properties does the Poisson bracket have that should be met?
+	\begin{equation}
+		\{f,\,g\} = \omega(X(f),\,X(g)).
+	\end{equation}
+	Here, \(X\) is some linear functor that maps real functions to vector fields over \(M\), such that constant functions are mapped to the zero-vector field. We call \(X\) a Hamiltonian vector field.\\
+	From this definition, if we define some function \(H:\ M\to\R\), the Hamiltonian, we can, as before, find the equations of motion for the true paths \(\gamma\) over \(M\),
+	\begin{equation}
+		\dv{(f\circ\gamma)}{t} = \{f,\,H\}\circ\gamma
+	\end{equation}
+	for any differentiable real function \(f\) on \(M\).\\
+	The take-away here is that it is possible to formulate a way of deriving equations of motion (a ``Hamiltonian theory'', if you will), given only a Hamiltonian vector field.\\
+	Note that, being a \(2\)-form, we can reframe \(\omega\) as being a non-degenerate asymmetric function \(\mathfrak{X}(M)\to \Omega^1(M)\), which then allows us to define an invere function \(\Omega:\ \Omega^1(M)\to\mathfrak{X}(M)\).
+	This gives us a Hamiltonian vector field:
+	\begin{equation}
+		X(f) := \Omega(\dd f).
+	\end{equation}
+	In fact, this specific Hamiltonian vector field is the one that is used in regular Hamiltonian mechanics.
 	%
 	\section{Categorical Hamiltonian theories}
 	%% The categorical description of Hamiltonian mechanics using symplectic geometry
