@@ -7,6 +7,7 @@
 \date{}
 
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\newcommand{\category}[1]{{\normalfont\textbf{#1}}}
 
 \begin{document}
 \maketitle
@@ -71,5 +72,15 @@
 	%
 	\section{Categorical Hamiltonian theories}
 	%% The categorical description of Hamiltonian mechanics using symplectic geometry
+	In this final section, we will describe the processes from the previous sections in an abstract, categorical manner. As you would expect, this first requires us to define a fitting category.
+	\begin{definition}
+		\category{Ham} is the category of Hamiltonian systems, i.e.,
+		\begin{itemize}
+			\item its objects are triples \((M,\,\omega,
+			,H)\), where \((M,\,\omega)\) is a symplectic manifold, and \(H\) is some differentiable real function on \(M\);
+			\item the morphisms \(\category{Ham}((M,\,\omega,\,H),\,(N,\,\eta,\,K))\) are differentiable functions \(f:\ M\to N\) such that \(f^*\eta = \omega\) and \(f^*K = H\).
+		\end{itemize}
+	\end{definition}
+	As usual with morphisms, these morphisms were defined exactly to preserve the defining structures of the objects, i.e., the symplectic forms and the Hamiltonians.
 \end{multicols}
 \end{document}
