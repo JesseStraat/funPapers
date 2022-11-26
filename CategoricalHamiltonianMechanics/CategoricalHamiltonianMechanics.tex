@@ -77,16 +77,16 @@
 		Let \(M\) be a differentiable manifold. \(\category{Ham}_M\) is the category of Hamiltonian systems on \(M\), i.e.,
 		\begin{itemize}
 			\item its objects are pairs \((\omega,\,H)\), where \((M,\,\omega)\) is a symplectic manifold, and \(H\) is some differentiable real function on \(M\);
-			\item the morphisms \((\omega,\,H) \to (\eta,\,K)\) are differentiable functions \(f:\ M\to M\) such that \(f^*\eta = \omega\) and \(f^*K = H\).
+			\item the morphisms \((\omega,\,H) \to (\eta,\,K)\) are differentiable functions \(F:\ M\to M\) such that \(f^*\eta = \omega\) and \(f^*K = H\).
 		\end{itemize}
 	\end{definition}
 	As usual with morphisms, these morphisms were defined exactly to preserve the defining structures of the objects, i.e., the symplectic forms and the Hamiltonians.\\
 	Now, we want to derive equations of motion from these Hamiltonian systems. To this end, we will define another category.
 	\begin{definition}
-		\(\category{EOM}_M\) is the category of equations of motion, defined such that
+		\(\category{EOM}_M\) is the category of equations of motion on \(M\), defined such that
 		\begin{itemize}
-			\item its objects are functions \(\partial\) that maps differentiable functions on \(M\) to other differentiable functions on \(M\);
-			\item its morphisms \(\partial \to \partial'\) are differentiable functions \(F:\ M\to M\) such that \(f^*\partial'(f) = \partial(F^*f)\) for all differentiable functions \(f\) on \(M\).
+			\item its objects are functions \(\partial:\ \mathcal{F}(M)\to \mathcal{F}(M)\), with \(\mathcal{F}(M)\) the differentiable real functions on \(M\);
+			\item its morphisms \(\partial \to \partial'\) are differentiable functions \(F:\ M\to M\) such that \(f^*\partial'(f) = \partial(F^*f)\) for all differentiable functions \(f\in\mathcal{F}(M)\) on \(M\).
 		\end{itemize}
 	\end{definition}
 	Here, we deliberately chose the name \(\partial\) to reflect the fact that these are the functions that give us the equations of motion:
@@ -97,6 +97,16 @@
 	Now, with these tools in hand, we can define a process that turns Hamiltonian system into a manifold and its equations of motion.
 	\begin{definition}
 		A Hamiltonian theory on \(M\) is a functor from \(\category{Ham}_M\) to \(\category{EOM}_M\).
+	\end{definition}
+	Defining Hamiltonian theories as a functor means that they take some Hamiltonian system on \(M\) to a set of equations of motion for real functions on \(M\). 
+	Moreover, if there exists some relationship between two Hamiltonian systems, in the form of a morphism, it is mapped to a relationship, or morphism, between the equations of motion!\\
+	Now, as mentioned before, we can define such a function \(\partial(f) = \{f,\,H\}\) by first defining a Poisson bracket, which was uniquely determined through the symplectic form and some Hamiltonian vector field. We would like to further examine this alternative way of finding Hamiltonian theories using category theory.
+	\begin{definition}
+		\(\category{HVF}_M\) is the category of Hamiltonian vector fields on \(M\), i.e.,
+		\begin{itemize}
+			\item its objects are functions \(X:\ \mathcal{F}(M)\to \mathfrak{X}(M)\);
+			\item its morphisms \(X\to Y\) are differentiable functions \(F:\ M\to M\) such that \(X(F^*f) = F^*Y(f)\) for all \(f\in\mathcal{F}(M)\).
+		\end{itemize}
 	\end{definition}
 \end{multicols}
 \end{document}
