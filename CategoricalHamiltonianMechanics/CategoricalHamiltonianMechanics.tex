@@ -85,7 +85,7 @@
 	\begin{definition}
 		\(\category{EOM}_M\) is the category of equations of motion on \(M\), defined such that
 		\begin{itemize}
-			\item its objects are functions \(\partial:\ \mathcal{F}(M)\to \mathcal{F}(M)\), with \(\mathcal{F}(M)\) the differentiable real functions on \(M\);
+			\item its objects are linear functions \(\partial:\ \mathcal{F}(M)\to \mathcal{F}(M)\), with \(\mathcal{F}(M)\) the differentiable real functions on \(M\);
 			\item its morphisms \(\partial \to \partial'\) are differentiable functions \(f:\ M\to M\) such that \(f^*\partial'(\phi) = \partial(f^*\phi)\) for all differentiable functions \(\phi\in\mathcal{F}(M)\) on \(M\).
 		\end{itemize}
 	\end{definition}
@@ -120,9 +120,15 @@
 			G(\omega,\, H)(\phi) = \omega(F(\omega,\, H)(\phi),\, F(\omega,\, H)(H)),
 		\end{equation}
 		\begin{equation}
-			G(f) = F,
+			G(f) = f,
 		\end{equation}
 		is a Hamiltonian theory.
 	\end{lemma}
+	\begin{proof}
+		% TODO
+		% First part: proving that it is a functor
+		% i.e., show that G(f) is indeed a morphism, objects are trivial
+		% Second part: proving that energy is conserved
+	\end{proof}
 \end{multicols}
 \end{document}
