@@ -74,30 +74,29 @@
 	%% The categorical description of Hamiltonian mechanics using symplectic geometry
 	In this final section, we will describe the processes from the previous sections in an abstract, categorical manner. As you would expect, this first requires us to define a fitting category.
 	\begin{definition}
-		\category{Ham} is the category of Hamiltonian systems, i.e.,
+		Let \(M\) be a differentiable manifold. \(\category{Ham}_M\) is the category of Hamiltonian systems on \(M\), i.e.,
 		\begin{itemize}
-			\item its objects are triples \((M,\,\omega,\,H)\), where \((M,\,\omega)\) is a symplectic manifold, and \(H\) is some differentiable real function on \(M\);
-			\item the morphisms \((M,\,\omega,\,H) \to (N,\,\eta,\,K)\) are differentiable functions \(f:\ M\to N\) such that \(f^*\eta = \omega\) and \(f^*K = H\).
+			\item its objects are pairs \((\omega,\,H)\), where \((M,\,\omega)\) is a symplectic manifold, and \(H\) is some differentiable real function on \(M\);
+			\item the morphisms \((\omega,\,H) \to (\eta,\,K)\) are differentiable functions \(f:\ M\to M\) such that \(f^*\eta = \omega\) and \(f^*K = H\).
 		\end{itemize}
 	\end{definition}
 	As usual with morphisms, these morphisms were defined exactly to preserve the defining structures of the objects, i.e., the symplectic forms and the Hamiltonians.\\
 	Now, we want to derive equations of motion from these Hamiltonian systems. To this end, we will define another category.
 	\begin{definition}
-		\category{EOM} is the category of equations of motion, defined such that
+		\(\category{EOM}_M\) is the category of equations of motion, defined such that
 		\begin{itemize}
-			\item its objects are pairs \((M,\,\partial)\), where \(M\) is a differentiable manifold, and \(\partial\) linearly maps differentiable functions on \(M\) to other differentiable functions on \(M\);
-			\item its morphisms \((M,\,\partial) \to (N,\,\partial')\) are differentiable functions \(F:\ M\to N\) such that \(f^*\partial'(f) = \partial(F^*f)\) for all differentiable functions \(f\) on \(N\).
+			\item its objects are functions \(\partial\) that maps differentiable functions on \(M\) to other differentiable functions on \(M\);
+			\item its morphisms \(\partial \to \partial'\) are differentiable functions \(F:\ M\to M\) such that \(f^*\partial'(f) = \partial(F^*f)\) for all differentiable functions \(f\) on \(M\).
 		\end{itemize}
 	\end{definition}
 	Here, we deliberately chose the name \(\partial\) to reflect the fact that these are the functions that give us the equations of motion:
 	\begin{equation}
 		\dv{f\circ\gamma}{t} = \partial(f)\circ\gamma.
 	\end{equation}
-	Essentially, the objects of \category{EOM} consists of all manifolds with a function that defines a set of well-defined equations of motion.\\
+	Essentially, the objects of \(\category{EOM}_M\) consists of all functions that defines a set of well-defined equations of motion.\\
 	Now, with these tools in hand, we can define a process that turns Hamiltonian system into a manifold and its equations of motion.
 	\begin{definition}
-		A Hamiltonian theory is a functor from \category{Ham} to \category{EOM}.
+		A Hamiltonian theory on \(M\) is a functor from \(\category{Ham}_M\) to \(\category{EOM}_M\).
 	\end{definition}
-	Given a Hamiltonian system \((M,\,\omega,\,H)\), a Hamiltonian theory gives us 
 \end{multicols}
 \end{document}
