@@ -96,10 +96,11 @@
 	Essentially, the objects of \(\category{EOM}_M\) consists of all functions that defines a set of well-defined equations of motion.\\
 	Now, with these tools in hand, we can define a process that turns Hamiltonian system into a manifold and its equations of motion.
 	\begin{definition}
-		A Hamiltonian theory on \(M\) is a functor from \(\category{Ham}_M\) to \(\category{EOM}_M\).
+		A Hamiltonian theory on \(M\) is a functor \(F\) from \(\category{Ham}_M\) to \(\category{EOM}_M\) such that \(F(\omega,\,H)(H) = 0\).
 	\end{definition}
 	Defining Hamiltonian theories as a functor means that they take some Hamiltonian system on \(M\) to a set of equations of motion for real functions on \(M\). 
-	Moreover, if there exists some relationship between two Hamiltonian systems, in the form of a morphism, it is mapped to a relationship, or morphism, between the equations of motion!\\
+	Moreover, if there exists some relationship between two Hamiltonian systems, in the form of a morphism, it is mapped to a relationship, or morphism, between the equations of motion!
+	The final property of the Hamiltonian theory ensures a conservation of energy, which is a necessary property of classical mechanics (which also followed from the asymmetry of the Poisson bracket).\\
 	Now, as mentioned before, we can define such a function \(\partial(f) = \{f,\,H\}\) by first defining a Poisson bracket, which was uniquely determined through the symplectic form and some Hamiltonian vector field. We would like to further examine this alternative way of finding Hamiltonian theories using category theory.
 	\begin{definition}
 		\(\category{HVF}_M\) is the category of Hamiltonian vector fields on \(M\), i.e.,
@@ -108,5 +109,9 @@
 			\item its morphisms \(X\to Y\) are differentiable functions \(F:\ M\to M\) such that \(X(F^*f) = F^*Y(f)\) for all \(f\in\mathcal{F}(M)\).
 		\end{itemize}
 	\end{definition}
+	\begin{definition}
+		A proto-Hamiltonian theory on \(M\) is a functor from \(\category{Ham}_M\) to \(\category{HVF}_M\).
+	\end{definition}
+	A proto-Hamiltonian theory essentially assigns a Hamiltonian vector field to each Hamiltonian system, and, once again, conserves transformations between different systems.
 \end{multicols}
 \end{document}
