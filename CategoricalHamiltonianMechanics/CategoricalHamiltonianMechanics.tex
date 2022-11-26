@@ -1,14 +1,23 @@
 \documentclass{article}
 \usepackage[lang = english, numbering = section]{JesseTeX}
+\usepackage{multicol}
 
 \title{Categorical Hamiltonian mechanics}
-\author{Jesse Straat \\6835503}
-
-\renewcommand{\thesubsection}{(\alph{subsection})}
+\author{Jesse Straat\thanks{Utrecht University}}
 
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
-\renewcommand{\phi}{\varphi}
-
 \begin{document}
-	\maketitle
+\maketitle
+
+\begin{multicols}{2}
+	\section{Hamiltonian mechanics}
+	%% A short review on Hamiltonian mechanics to familiarise a mathematical audience
+	%
+	\section{Symplectic geometry}
+	%% An introduction to using symplectic geometry to generalise the concept of Hamiltonian mechanics
+	%
+	\section{Categorical Hamiltonian theories}
+	%% The categorical description of Hamiltonian mechanics using symplectic geometry
+\end{multicols}
+\end{document}
