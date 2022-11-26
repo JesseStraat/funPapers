@@ -78,9 +78,22 @@
 		\begin{itemize}
 			\item its objects are triples \((M,\,\omega,
 			,H)\), where \((M,\,\omega)\) is a symplectic manifold, and \(H\) is some differentiable real function on \(M\);
-			\item the morphisms \(\category{Ham}((M,\,\omega,\,H),\,(N,\,\eta,\,K))\) are differentiable functions \(f:\ M\to N\) such that \(f^*\eta = \omega\) and \(f^*K = H\).
+			\item the morphisms \((M,\,\omega,\,H) \to (N,\,\eta,\,K)\) are differentiable functions \(f:\ M\to N\) such that \(f^*\eta = \omega\) and \(f^*K = H\).
 		\end{itemize}
 	\end{definition}
-	As usual with morphisms, these morphisms were defined exactly to preserve the defining structures of the objects, i.e., the symplectic forms and the Hamiltonians.
+	As usual with morphisms, these morphisms were defined exactly to preserve the defining structures of the objects, i.e., the symplectic forms and the Hamiltonians.\\
+	Now, we want to derive equations of motion from these Hamiltonian systems. To this end, we will define another category.
+	\begin{definition}
+		\category{EOM} is the category of equations of motion, defined such that
+		\begin{itemize}
+			\item its objects are pairs \((M,\,\partial)\), where \(M\) is a differentiable manifold, and \(\partial\) linearly maps differentiable functions on \(M\) to other differentiable functions on \(M\);
+			\item its morphisms \((M,\,\partial) \to (N,\,\partial')\) are differentiable functions \(F:\ M\to N\) such that \(f^*\partial'(f) = \partial(F^*f)\) for all differentiable functions \(f\) on \(N\).
+		\end{itemize}
+	\end{definition}
+	Here, we deliberately chose the name \(\partial\) to reflect the fact that these are the functions that give us the equations of motion:
+	\begin{equation}
+		\dv{f\circ\gamma}{t} = \partial(f)\circ\gamma.
+	\end{equation}
+	Essentially, the objects of \category{EOM} consists of all manifolds with a function that defines a set of well-defined equations of motion.
 \end{multicols}
 \end{document}
