@@ -76,8 +76,7 @@
 	\begin{definition}
 		\category{Ham} is the category of Hamiltonian systems, i.e.,
 		\begin{itemize}
-			\item its objects are triples \((M,\,\omega,
-			,H)\), where \((M,\,\omega)\) is a symplectic manifold, and \(H\) is some differentiable real function on \(M\);
+			\item its objects are triples \((M,\,\omega,\,H)\), where \((M,\,\omega)\) is a symplectic manifold, and \(H\) is some differentiable real function on \(M\);
 			\item the morphisms \((M,\,\omega,\,H) \to (N,\,\eta,\,K)\) are differentiable functions \(f:\ M\to N\) such that \(f^*\eta = \omega\) and \(f^*K = H\).
 		\end{itemize}
 	\end{definition}
@@ -97,7 +96,8 @@
 	Essentially, the objects of \category{EOM} consists of all manifolds with a function that defines a set of well-defined equations of motion.\\
 	Now, with these tools in hand, we can define a process that turns Hamiltonian system into a manifold and its equations of motion.
 	\begin{definition}
-		A Hamiltonian theory is a function from \category{Ham} to \category{EOM}.
+		A Hamiltonian theory is a functor from \category{Ham} to \category{EOM}.
 	\end{definition}
+	Given a Hamiltonian system \((M,\,\omega,\,H)\), a Hamiltonian theory gives us 
 \end{multicols}
 \end{document}
