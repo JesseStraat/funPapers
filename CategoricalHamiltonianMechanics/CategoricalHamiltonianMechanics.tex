@@ -85,7 +85,7 @@
 	\begin{definition}
 		\(\category{EOM}_M\) is the category of equations of motion on \(M\), defined such that
 		\begin{itemize}
-			\item its objects are linear functions \(\partial:\ \mathcal{F}(M)\to \mathcal{F}(M)\), with \(\mathcal{F}(M)\) the differentiable real functions on \(M\);
+			\item its objects are linear functions \(\partial:\ \mathcal{F}(M)\to \mathcal{F}(M)\), with \(\mathcal{F}(M)\) the differentiable real functions on \(M\), that map constant functions to the zero function;
 			\item its morphisms \(\partial \to \partial'\) are differentiable functions \(f:\ M\to M\) such that \(f^*\partial'(\phi) = \partial(f^*\phi)\) for all differentiable functions \(\phi\in\mathcal{F}(M)\) on \(M\).
 		\end{itemize}
 	\end{definition}
@@ -105,8 +105,8 @@
 	\begin{definition}
 		\(\category{HVF}_M\) is the category of Hamiltonian vector fields on \(M\), i.e.,
 		\begin{itemize}
-			\item its objects are functions \(X:\ \mathcal{F}(M)\to \mathfrak{X}(M)\);
-			\item its morphisms \(X\to Y\) are differentiable functions \(F:\ M\to M\) such that \(X(F^*f) = F^*Y(f)\) for all \(\phi\in\mathcal{F}(M)\).
+			\item its objects are linear functions \(X:\ \mathcal{F}(M)\to \mathfrak{X}(M)\) that map constant functions to the zero vector field;
+			\item its morphisms \(X\to Y\) are differentiable functions \(f:\ M\to M\) such that \(X(f^*\phi) = f^*Y(\phi)\) for all \(\phi\in\mathcal{F}(M)\).
 		\end{itemize}
 	\end{definition}
 	\begin{definition}
@@ -114,21 +114,52 @@
 	\end{definition}
 	A proto-Hamiltonian theory essentially assigns a Hamiltonian vector field to each Hamiltonian system, and, once again, conserves transformations between different systems.\\
 	Now, as we did before, we want to go from Hamiltonian vector fields to equations of motion, so we want to induce a Hamiltonian theory given a proto-Hamiltonian theory.
-	\begin{lemma}
+	\begin{lemma}\label{lm:hamiltoniantheory}
 		Let \(F\) be a proto-Hamiltonian theory on a manifold \(M\). Then the functor \(G\) from \(\category{Ham}_M\) to \(\category{EOM}_M\), defined by
 		\begin{equation}
 			G(\omega,\, H)(\phi) = \omega(F(\omega,\, H)(\phi),\, F(\omega,\, H)(H)),
 		\end{equation}
 		\begin{equation}
-			G(f) = f,
+			G(f) = F(f),
 		\end{equation}
 		is a Hamiltonian theory.
 	\end{lemma}
 	\begin{proof}
-		% TODO
+		First, we need to check that \(G\) is indeed a functor, and second, we will prove that \(G(\omega,\,H)(H)=0\) for all \((\omega,\,H)\).
 		% First part: proving that it is a functor
 		% i.e., show that G(f) is indeed a morphism, objects are trivial
+		If we take \((\omega,\,H)\) to be some object in \(\category{Ham}_M\), then the linearity of \(G(\omega,\,H)\) follows from the bilinearity of \(\omega\) and the linearity of \(F(\omega,\,H)\).\\
+		If \(f:\ (\omega,\,H)\to(\eta,\,K)\) is a morphism in \(\category{Ham}_M\), then \(G(f) = F(f)\) is a morphism \(F(\omega,\,H)\to F(\eta,\,K)\), such that \(F(\omega,\,H)(G(f)^*\phi) = G(f)^*F(\eta,\,K)(\phi)\), and thus,
+		\begin{align*}
+			G(f)^*&G(\eta,\,K)(\phi) \\
+			&= \omega(F(\eta,\,K)(\phi),\,F(\eta,\,K)(\phi))\circ G(f)\\
+			&= \omega(G(f)^*F(\eta,\,K)(\phi),\,G(f)^*F(\eta,\,K)(\phi))\\
+			&= \omega(F(\omega,\,H)(G(f)^*\phi),\,F(\omega,\,H)(G(f)^*\phi))\\
+			&= G(\omega,\,H)(G(f)^*\phi).
+		\end{align*}
+		Thus, \(G(f)\) is indeed a morphism \(G(\omega,\,H)\to G(\eta,\,K)\).\\
+		As inherited from \(F\), \(G\) preserves identity morphisms and composition of morphisms.\\
 		% Second part: proving that energy is conserved
+		Now, to show that \(G\) guarantees energy conservation, i.e., \(G(\omega,\,H)(H)=0\) for all \((\omega,\,H)\), we will simply write it out.
+		\begin{equation*}
+			G(\omega,\,H)(H) = \omega(F(\omega,\, H)(H),\, F(\omega,\, H)(H)) = 0.
+		\end{equation*}
+		Hence, we conclude that \(G\) is indeed a Hamiltonian theory.
 	\end{proof}
+	As before, we see that it is plenty to define Hamiltonian vector fields for Hamiltonian systems througha proto-Hamiltonian theory, from which a Hamiltonian theory is directly induced using the symplectic form and Hamiltonian.\\
+	Note that classical mechanics is a canonical choice of a proto-Hamiltonian theory \(F\), with
+	\begin{align}
+		F(\omega,\,H)(\phi) = \Omega(\dd{\phi}),\\
+		F(f) = f.
+	\end{align}
+	One can see that \(F(f)\) satisfies the morphism axioms of \(\category{HVF}_M\), since, for \(f:\ (\omega,\,H)\to(\eta,\,K)\),
+	\begin{align*}
+		f^*\Omega_\eta(\dd{\phi}) &= f^*\eta^{-1}(\dd{\phi})\\
+		&= \omega^{-1}(f^*\dd{\phi})\\
+		&= \Omega_\omega(f^*\dd{\phi}).
+	\end{align*}
+	A Hamiltonian theory is then induced through lemma \ref{lm:hamiltoniantheory}.
+	\medskip\par
+	By describing Hamiltonian theories as functors, we can create more general theories similar to Hamiltonian mechanics, and we can get a better understanding of what happens in the background of Hamiltonian physics, and the mathematics behind it.
 \end{multicols}
 \end{document}
