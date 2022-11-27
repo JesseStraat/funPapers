@@ -2,6 +2,8 @@
 \usepackage[lang = english, numbering = section, nocount]{JesseTeX}
 \usepackage{multicol}
 
+\addbibresource{references.bib}
+
 \title{Categorical Hamiltonian mechanics}
 \author{J.R.H. Straat\thanks{Utrecht University}}% TODO: define \thanks in JesseTeX
 \date{}
@@ -13,6 +15,11 @@
 \maketitle
 
 \begin{multicols}{2}
+	\section{Introduction}
+	Many physical theories can be abstractly defined using category theory, providing new insights on the structures that define the theory. Examples of these include topological quantum field theories\cite{BaezTQFT} and string theory[citation needed].\\% TODO: add string theory citation
+	In line with these developments, we will provide the reader of this paper with a categorical model of classical Hamiltonian mechanics, in an effort to gain a better mathematical understanding of the essence of Hamiltonian mechanics.\\
+	We will start the paper by providing the reader with a short review on Hamiltonian mechanics and symplectic geometry in the context of Hamiltonian mechanics. Then, we will reformulate the theory in an abstract manner using category theory.
+	%
 	\section{Hamiltonian mechanics}
 	%% A short review on Hamiltonian mechanics to familiarise a mathematical audience
 	In this first section, we will shortly review the basic concepts of Hamiltonian mechanics. Let us start by defining some Euclidean space \(\R^n\), which we will refer to as ``position space''. Additionally, we want to define a ``momentum space'', which is also equal to \(\R^n\).
@@ -162,4 +169,5 @@
 	\medskip\par
 	By describing Hamiltonian theories as functors, we can create more general theories similar to Hamiltonian mechanics, and we can get a better understanding of what happens in the background of Hamiltonian physics, and the mathematics behind it.
 \end{multicols}
+\printbibliography
 \end{document}
