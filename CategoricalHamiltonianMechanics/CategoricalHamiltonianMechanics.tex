@@ -2,7 +2,9 @@
 \usepackage[lang = english, numbering = section, nocount]{JesseTeX}
 \usepackage{multicol}
 
-\title{Categorical Hamiltonian mechanics}
+\addbibresource{references.bib}
+
+\title{An application of category theory to classical Hamiltonian mechanics}
 \author{J.R.H. Straat\thanks{Utrecht University}}% TODO: define \thanks in JesseTeX
 \date{}
 
@@ -13,18 +15,23 @@
 \maketitle
 
 \begin{multicols}{2}
+	\section{Introduction}
+	Many physical theories can be abstractly defined using category theory, providing new insights on the structures that define the theory. Examples of these include topological quantum field theories\cite{BaezTQFT} and string theory[citation needed].\\% TODO: add string theory citation
+	In line with these developments, we will provide the reader of this paper with a categorical model of classical Hamiltonian mechanics, in an effort to gain a better mathematical understanding of the essence of Hamiltonian mechanics.\\
+	We will start the paper by providing the reader with a short review on Hamiltonian mechanics and symplectic geometry in the context of Hamiltonian mechanics. Then, we will reformulate the theory in an abstract manner using category theory.
+	%
 	\section{Hamiltonian mechanics}
 	%% A short review on Hamiltonian mechanics to familiarise a mathematical audience
 	In this first section, we will shortly review the basic concepts of Hamiltonian mechanics. Let us start by defining some Euclidean space \(\R^n\), which we will refer to as ``position space''. Additionally, we want to define a ``momentum space'', which is also equal to \(\R^n\).
 	Together, these two spaces form phase space \(\R^{2n}\), whose coordinates are given by \(q_1,\,\dots,\,q_n,\,p_1,\,\dots,\,p_n\). In classical mechanics, we use this phase space to describe the motion of objects. This is achieved using a path \(\gamma:\ \R\to\R^{2n}\), such that \(\gamma(t)\) gives us both a position and a momentum (N.B.: the domain of these paths represent time).
-	Not every path is a possible one. In fact, to ensure determinism, we should only allow there to exist one path to pass through any given point.\\
-	How do we find the unique path? The answer lies in the Hamiltonian, a continuously differentiable function \(H:\ \R^{2n}\to\R\), which can be understood as assigning to each point in phase space the energy associated with it (the Hamiltonian is equal to the total energy more often than not).
-	Hamiltonian mechanics supplies us with a powerful tool for finding the unique path. For any continuously differentiable function \(\phi:\ \R^{2n}\to\R\), we have that
+	Not every path is a possible one. In fact, to ensure determinism, we should only allow there to be one path to pass through any given point.\\
+	But how do we find the unique path? The answer lies in the Hamiltonian, a continuously differentiable function \(H:\ \R^{2n}\to\R\), which can be understood as assigning to each point in phase space an energy (the Hamiltonian is equal to the total energy more often than not).
+	Hamiltonian mechanics provides us with a powerful tool for finding the unique path. For any continuously differentiable function \(\phi:\ \R^{2n}\to\R\), we have that
 	\begin{equation}
 		\dv{(\phi\circ\gamma)}{t} = \left.\sum_{i=1}^n \pdv{\phi}{q_i}\pdv{H}{p_i} - \pdv{\phi}{p_i}\pdv{H}{q_i}\right|_{\gamma} =: \{f,\,H\}\circ\gamma.
 	\end{equation}
 	\(\{\cdot,\ \cdot\}\) is called the Poisson bracket, and is an important tool in Hamiltonian mechanics.
-	Now, to get equations of motion for our path \(\gamma\), we can choose \(f\) to be our coordinates \(q_i\) and \(p_i\). This gives us a set of \(2n\) first-order differential equations
+	Now, to get the equations of motion for our path \(\gamma\), we can choose \(f\) to be our coordinates \(q_i\) and \(p_i\). This gives us a set of \(2n\) first-order differential equations
 	\begin{equation}
 		\dv{(q_i\circ\gamma)}{t} = \{q_i,\,H\}\circ\gamma = \pdv{H}{p_i}\circ\gamma,
 	\end{equation}
@@ -35,10 +42,10 @@
 	To give an example of how to use these equations, consider a particle in \(n\) dimensions moving around freely without a potential energy.
 	The Hamiltonian in this case is given by \(H = \sum_{i=1}^n\frac{{p_i}^2}{2m}\), where \(m\) is te particle's mass. We then find Hamilton's equations to be
 	\begin{equation}
-		\dv{q_i\circ\gamma}{t} = \frac{p_i\circ\gamma}{m},
+		\dv{(q_i\circ\gamma)}{t} = \frac{p_i\circ\gamma}{m},
 	\end{equation}
 	\begin{equation}
-		\dv{p_i\circ\gamma}{t} = 0.
+		\dv{(p_i\circ\gamma)}{t} = 0.
 	\end{equation}
 	Therefore, if the particle starts with some momentum \(\vec{p}\), it must conserve that value over the entire path.
 	Moreover, the position of the particle over time is given by \(\vec{x}(\gamma(t)) = \frac{\vec{p}}{m}t\). This gives us our path.
@@ -49,24 +56,24 @@
 	\begin{definition}
 		A symplectic manifold \((M,\,\omega)\) is a pair consisting of a differentiable manifold \(M\) and a non-degenerate \(2\)-form \(\omega\) on \(M\). We say that \(\omega\) is the symplectic form of the symplectic manifold.
 	\end{definition}
-	Let us dissect this definition. The symplectic form \(\omega\) is a \(2\)-form on \(M\). This means that it is an asymmetric bilinear map that takes two vector fields \(V,\,W\in\mathfrak{X}(M)\) on \(M\), and maps them to some differentiable real function on \(M\). Moreover, since it is non-degenerate, we know that if \(\omega(V,W) = 0\) for all \(V\), then \(W=0\).
-	This sounds a lot like the the Poisson bracket, which was an asymmetric bilinear map that takes two real functions \(\phi,\,\xi\) on \(\R^{2n}\), and maps them to another real function on \(\R^{2n}\). Moreover, if \(\{\phi,\,\xi\}=0\) for all \(\phi\), then \(\xi\) had to be constant.
+	Let us dissect this definition. The symplectic form \(\omega\) is a \(2\)-form on \(M\). This means that it is an antisymmetric bilinear map that takes two vector fields \(V,\,W\in\mathfrak{X}(M)\) on \(M\), and maps them to some differentiable real function on \(M\). Moreover, since it is non-degenerate, we know that if \(\omega(V,W) = 0\) for all \(V\), then \(W=0\).
+	This sounds a lot like the the Poisson bracket, which was an antisymmetric bilinear map that takes two real functions \(\phi,\,\xi\) on \(\R^{2n}\), and maps them to another real function on \(\R^{2n}\). Moreover, if \(\{\phi,\,\xi\}=0\) for all \(\phi\), then \(\xi\) had to be constant.
 	In fact, from the symplectic form, we can derive an object with the same properties as the Poisson bracket
 	% TODO: What other properties does the Poisson bracket have that should be met?
 	\begin{equation}
 		\{\phi,\,\xi\} = \omega(X(\phi),\,X(\xi)).
 	\end{equation}
-	Here, \(X\) is some linear functor that maps real functions to vector fields over \(M\), such that constant functions are mapped to the zero-vector field. We call \(X\) a Hamiltonian vector field.\\
+	Here, \(X\) is some linear functor that maps real functions to vector fields over \(M\), such that constant functions are mapped to the zero vector field. We call \(X\) a Hamiltonian vector field.\\
 	From this definition, if we define some function \(H:\ M\to\R\), the Hamiltonian, we can, as before, find the equations of motion for the true paths \(\gamma\) over \(M\),
 	\begin{equation}
 		\dv{(\phi\circ\gamma)}{t} = \{\phi,\,H\}\circ\gamma
 	\end{equation}
 	for any differentiable real function \(\phi\) on \(M\).\\
 	The take-away here is that it is possible to formulate a way of deriving equations of motion (a ``Hamiltonian theory'', if you will), given only a Hamiltonian vector field.\\
-	Note that, being a \(2\)-form, we can reframe \(\omega\) as being a non-degenerate asymmetric function \(\mathfrak{X}(M)\to \Omega^1(M)\), which then allows us to define an invere function \(\Omega:\ \Omega^1(M)\to\mathfrak{X}(M)\).
+	Note that, being a \(2\)-form, we can reframe \(\omega\) as being a non-degenerate antisymmetric linear function \(\mathfrak{X}(M)\to \Omega^1(M)\), which then allows us to define an inverse function \(\Omega:\ \Omega^1(M)\to\mathfrak{X}(M)\).
 	This gives us a Hamiltonian vector field:
 	\begin{equation}
-		X(f) := \Omega(\dd \phi).
+		X(\phi) := \Omega(\dd \phi).
 	\end{equation}
 	In fact, this specific Hamiltonian vector field is the one that is used in regular Hamiltonian mechanics.
 	%
@@ -85,7 +92,7 @@
 	\begin{definition}
 		\(\category{EOM}_M\) is the category of equations of motion on \(M\), defined such that
 		\begin{itemize}
-			\item its objects are linear functions \(\partial:\ \mathcal{F}(M)\to \mathcal{F}(M)\), with \(\mathcal{F}(M)\) the differentiable real functions on \(M\);
+			\item its objects are linear functions \(\partial:\ \mathcal{F}(M)\to \mathcal{F}(M)\), with \(\mathcal{F}(M)\) the differentiable real functions on \(M\), that map constant functions to the zero function;
 			\item its morphisms \(\partial \to \partial'\) are differentiable functions \(f:\ M\to M\) such that \(f^*\partial'(\phi) = \partial(f^*\phi)\) for all differentiable functions \(\phi\in\mathcal{F}(M)\) on \(M\).
 		\end{itemize}
 	\end{definition}
@@ -93,42 +100,73 @@
 	\begin{equation}
 		\dv{(\phi\circ\gamma)}{t} = \partial(\phi)\circ\gamma.
 	\end{equation}
-	Essentially, the objects of \(\category{EOM}_M\) consists of all functions that defines a set of well-defined equations of motion.\\
-	Now, with these tools in hand, we can define a process that turns Hamiltonian system into a manifold and its equations of motion.
+	Essentially, the objects of \(\category{EOM}_M\) consists of all functionals that define a set of well-defined equations of motion.\\
+	Now, with these tools in hand, we can define a process that turns Hamiltonian system into a set of equations of motion.
 	\begin{definition}
 		A Hamiltonian theory on \(M\) is a functor \(F\) from \(\category{Ham}_M\) to \(\category{EOM}_M\) such that \(F(\omega,\,H)(H) = 0\).
 	\end{definition}
 	Defining Hamiltonian theories as a functor means that they take some Hamiltonian system on \(M\) to a set of equations of motion for real functions on \(M\). 
-	Moreover, if there exists some relationship between two Hamiltonian systems, in the form of a morphism, it is mapped to a relationship, or morphism, between the equations of motion!
-	The final property of the Hamiltonian theory ensures a conservation of energy, which is a necessary property of classical mechanics (which also followed from the asymmetry of the Poisson bracket).\\
-	Now, as mentioned before, we can define such a function \(\partial(\phi) = \{\phi,\,H\}\) by first defining a Poisson bracket, which was uniquely determined through the symplectic form and some Hamiltonian vector field. We would like to further examine this alternative way of finding Hamiltonian theories using category theory.
+	Moreover, if there exists some relationship between two Hamiltonian systems, in the form of a morphism, it is mapped to a relationship, or morphism, between the equations of motion!\\
+	Note that this formulation also gives us a way of checking for the conservation of some quantity. If we have some \(\phi\in\mathcal{F}(M)\), it is conserved, i.e., it remains constant on any path satisfying the equations of motion, if and only if \(F(\omega,\,H)(\phi) = 0\).
+	Therefore, the final property of Hamiltonian theories ensures that energy is conserved if the equations of motion are satisfied.\\
+	Now, as mentioned before, we can define such a function \(\partial(\phi) = \{\phi,\,H\}\) by first defining a Poisson bracket, which was uniquely determined through the symplectic form and some Hamiltonian vector field. We would like to further examine this alternative way of finding Hamiltonian theories.
 	\begin{definition}
 		\(\category{HVF}_M\) is the category of Hamiltonian vector fields on \(M\), i.e.,
 		\begin{itemize}
-			\item its objects are functions \(X:\ \mathcal{F}(M)\to \mathfrak{X}(M)\);
-			\item its morphisms \(X\to Y\) are differentiable functions \(F:\ M\to M\) such that \(X(F^*f) = F^*Y(f)\) for all \(\phi\in\mathcal{F}(M)\).
+			\item its objects are linear functions \(X:\ \mathcal{F}(M)\to \mathfrak{X}(M)\) that map constant functions to the zero vector field;
+			\item its morphisms \(X\to Y\) are differentiable functions \(f:\ M\to M\) such that \(X(f^*\phi) = f^*Y(\phi)\) for all \(\phi\in\mathcal{F}(M)\).
 		\end{itemize}
 	\end{definition}
 	\begin{definition}
-		A proto-Hamiltonian theory on \(M\) is a functor from \(\category{Ham}_M\) to \(\category{HVF}_M\).
+		A proto-Hamiltonian theory on \(M\) is a functor \(F\) from \(\category{Ham}_M\) to \(\category{HVF}_M\) such that \(F(f)^*K = H\) for any \(f:\ (\omega,\,H)\to(\eta,\,K)\) in \(\category{Ham}_M\).
 	\end{definition}
 	A proto-Hamiltonian theory essentially assigns a Hamiltonian vector field to each Hamiltonian system, and, once again, conserves transformations between different systems.\\
 	Now, as we did before, we want to go from Hamiltonian vector fields to equations of motion, so we want to induce a Hamiltonian theory given a proto-Hamiltonian theory.
-	\begin{lemma}
+	\begin{lemma}\label{lm:hamiltoniantheory}
 		Let \(F\) be a proto-Hamiltonian theory on a manifold \(M\). Then the functor \(G\) from \(\category{Ham}_M\) to \(\category{EOM}_M\), defined by
 		\begin{equation}
 			G(\omega,\, H)(\phi) = \omega(F(\omega,\, H)(\phi),\, F(\omega,\, H)(H)),
 		\end{equation}
 		\begin{equation}
-			G(f) = f,
+			G(f) = F(f),
 		\end{equation}
 		is a Hamiltonian theory.
 	\end{lemma}
 	\begin{proof}
-		% TODO
+		First, we need to check that \(G\) is indeed a functor, and second, we will prove that \(G(\omega,\,H)(H)=0\) for all \((\omega,\,H)\).
 		% First part: proving that it is a functor
 		% i.e., show that G(f) is indeed a morphism, objects are trivial
+		If we take \((\omega,\,H)\) to be some object in \(\category{Ham}_M\), then the linearity of \(G(\omega,\,H)\) follows from the bilinearity of \(\omega\) and the linearity of \(F(\omega,\,H)\). Therefore, \(G(\omega,\,H)\) is an object in \(\category{EOM}_M\).\\
+		If \(f:\ (\omega,\,H)\to(\eta,\,K)\) is a morphism in \(\category{Ham}_M\), then \(G(f) = F(f)\) is a morphism \(F(\omega,\,H)\to F(\eta,\,K)\), such that \(F(\omega,\,H)(G(f)^*\phi) = G(f)^*F(\eta,\,K)(\phi)\), and thus,
+		\begin{align*}
+			G(f)^*&G(\eta,\,K)(\phi) \\
+			&= \omega(F(\eta,\,K)(\phi),\,F(\eta,\,K)(K))\circ G(f)\\
+			&= \omega(G(f)^*F(\eta,\,K)(\phi),\,G(f)^*F(\eta,\,K)(K))\\
+			&= \omega(F(\omega,\,H)(G(f)^*\phi),\,F(\omega,\,H)(G(f)^*K))\\
+			&= G(\omega,\,H)(G(f)^*\phi).
+		\end{align*}
+		We have therefore found that \(G(f)\) indeed is a morphism \(G(\omega,\,H)\to G(\eta,\,K)\).\\
+		As inherited from \(F\), \(G\) preserves identity morphisms and composition of morphisms.\\
 		% Second part: proving that energy is conserved
+		Now, to show that \(G\) guarantees energy conservation, i.e., \(G(\omega,\,H)(H)=0\) for all \((\omega,\,H)\), we will simply write it out.
+		\begin{equation*}
+			G(\omega,\,H)(H) = \omega(F(\omega,\, H)(H),\, F(\omega,\, H)(H)) = 0.
+		\end{equation*}
+		Hence, we conclude that \(G\) is indeed a Hamiltonian theory.
 	\end{proof}
+	As before, we see that it is plenty to define Hamiltonian vector fields for Hamiltonian systems through a proto-Hamiltonian theory, from which a Hamiltonian theory is directly induced using the symplectic form and Hamiltonian.\\
+	Note that classical mechanics is a canonical choice of a proto-Hamiltonian theory \(F\), with
+	\begin{align}
+		F(\omega,\,H)(\phi) = \Omega(\dd{\phi}),\\
+		F(f) = f.
+	\end{align}
+	One can see that \(F(f)\) satisfies the morphism axioms of \(\category{HVF}_M\), since, for \(f:\ (\omega,\,H)\to(\eta,\,K)\),
+	\begin{align*}
+		f^*\Omega_\eta(\dd{\phi}) &= f^*\eta^{-1}(\dd{\phi})\\
+		&= \omega^{-1}(f^*\dd{\phi})\\
+		&= \Omega_\omega(f^*\dd{\phi}).
+	\end{align*}
+	A Hamiltonian theory is then induced through lemma \ref{lm:hamiltoniantheory}.
 \end{multicols}
+\printbibliography
 \end{document}
