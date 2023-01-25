@@ -5,18 +5,21 @@
 \addbibresource{references.bib}
 
 \title{An application of category theory to classical Hamiltonian mechanics}
-\author{J.R.H. Straat\thanks{Utrecht University}}% TODO: define \thanks in JesseTeX
+\author{J.R.H. Straat\thanks{Utrecht University}}
 \date{}
 
-\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 \newcommand{\category}[1]{{\normalfont\textbf{#1}}}
 
 \begin{document}
 \maketitle
-
+%
+\begin{abstract}
+	We show a way of describing classical Hamiltonian mechanics using category theory. Hamiltonian theories are constructed as functors from a category of symplectic manifolds and hamiltonians to a category of equations of motion. This notion is further generalised to a functor to a category of Hamiltonian vector fields, and show that any such a functor induces a Hamiltonian theory.
+\end{abstract}
+%
 \begin{multicols}{2}
 	\section{Introduction}
-	Many physical theories can be abstractly defined using category theory, providing new insights on the structures that define the theory. Examples of these include topological quantum field theories\cite{BaezTQFT} and string theory[citation needed].\\% TODO: add string theory citation
+	Many physical theories can be abstractly defined using category theory, providing new insights on the structures that define the theory. Examples of these include topological quantum field theories\cite{BaezTQFT} and string theory\cite{Douglas_2001}.\\
 	In line with these developments, we will provide the reader of this paper with a categorical model of classical Hamiltonian mechanics, in an effort to gain a better mathematical understanding of the essence of Hamiltonian mechanics.\\
 	We will start the paper by providing the reader with a short review on Hamiltonian mechanics and symplectic geometry in the context of Hamiltonian mechanics. Then, we will reformulate the theory in an abstract manner using category theory.
 	%
