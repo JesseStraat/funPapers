@@ -28,7 +28,7 @@
     This all changed in 1932, when mathematician and physicist John von Neumann published his ground-breaking \textit{Mathematische Grundlagen der Quantenmechanik}\cite{von_neumann_mathematische_1996}. Only three years after defining the ``Hilbert space'', named after his academic advisor David Hilbert, von Neumann used it to provide a mathematical foundation for quantum mechanics.\\
     However, a recent paper\cite{carcassi_unphysicality_2023} points out that the Hilbert space is a flawed model for quantum mechanics, since some of its predictions are ``unphysical''.
     %% What does it mean to be (un-)physical?
-    \section{(Un-)physicality}
+    \section*{(Un-)physicality}
     Let us start with that word: ``unphysical''. What does it mean for a (mathematical) model to be unphysical? First, we will have to look at what a model is. To describe reality, a physicist first creates a theory: a collection of physical rules or concepts that attempt to describe reality as accurately as possible. A mathematical model is then some mathematical structure that allows you to formulate said rules in an unambiuguous mathematical language.\\
     An elementary example of this is found in Newtonian mechanics. The rules are of course Newton's laws of motion, and the mathematical model would be calculus.\\
     Most of the time, mathematical structures precede the physical theory for which they are developed. For example, Riemann is attributed with creating the concept of a manifold in 1854, seventy years before Einstein's theory of general relativity (although the precise definition did not exist until the early 30's).\\
@@ -36,12 +36,14 @@
     %% Why mathematical descriptions matter
     %\section{Why physics needs maths}
     %% Vague description of Hilbert spaces
-    \section{Hilbert spaces}
+    \section*{Hilbert spaces}
     Let us apply our knowledge to Hilbert spaces, a mathematical model of quantum mechanics. One of the properties of a Hilbert space is that it is a vector space, which roughly means that the sum of any two quantum states must also be a quantum state. Physically, this is precisely the concept of superposition! Hence, the property of being a vector space is physical. The second property, that of the inner product, is also shown to be physical by the authors of the paper.\\
     Now, as for the Hilbert space's troublesome property: completeness. This means that certain infinite sequences of quantum states (called Cauchy sequences) must ``approach'' some quantum state, by which we mean that the sequence comes infinitely close to it.\\
     The authors of the article show that completeness gives quantum states that are physically impossible. For example, if we may create a state whose position expectation value is at any finite position (which holds very often), then we can also create a state whose position expectation value is diverges: it is not defined. It may even go to infinity. For physical reasons, these states should of course be excluded from our theory. The completeness condition, and hence the Hilbert space, is therefore unphysical. 
-    %% Conclusion
-    \section{Conclusion}
+    %% Alternatives
+    \section*{Alternatives}
+    The question remains whether there exists a physical alternative to Hilbert spaces. One popular alternative to Hilbert spaces is the rigged Hilbert space\cite{de_la_madrid_role_2005}. However, the authors show that, this too, has the same weaknesses as the Hilbert space, and it is unphysical.\\
+    The authors do leave us with another possible alternative called Schwartz spaces, which is more restrictive than the Hilbert space. However, no conclusions are drawn, and further research should be conducted to investigate the possibility.
 \end{multicols}
 \printbibliography
 \end{document}
