@@ -48,15 +48,16 @@
     Let us apply our knowledge to Hilbert spaces, von Neumann's mathematical model of quantum mechanics. The first of the properties of a Hilbert space is that it is a vector space, which roughly means that the sum of any two quantum states must also be a quantum state. Physically, this is precisely the concept of superposition! Hence, the property of being a vector space is physical. The second property, that of the inner product, is also shown to be physical by the authors of the paper.\\
     Now, the Hilbert space's troublesome and final property is completeness. This means that given certain infinite sequences of quantum states (called Cauchy sequences), there must exist a state that is the limit of the sequence.\\
     The authors of the article show that completeness gives quantum states that are physically impossible. For example, we can create a state whose position expectation value diverges: it is not defined. It may even go to infinity (see, for example, figure \ref{fig:sketch}). For physical reasons, these states should of course be excluded from our theory. The completeness condition, and hence the Hilbert space, is therefore unphysical.
+    %% Alternatives
+    \section*{Alternatives}
+    The question remains whether there exists a physical alternative to Hilbert spaces. One popular alternative to Hilbert spaces is the rigged Hilbert space\cite{de_la_madrid_role_2005}. However, as the authors mention, rigged Hilbert spaces are
     \begin{figure}[H]
         \centering
         \input{statesketch.tex}
         \caption{A one-dimensional example of a quantum wave whose position expecation value diverges to infinity.}
         \label{fig:sketch}
     \end{figure}
-    %% Alternatives
-    \section*{Alternatives}
-    The question remains whether there exists a physical alternative to Hilbert spaces. One popular alternative to Hilbert spaces is the rigged Hilbert space\cite{de_la_madrid_role_2005}. However, as the authors mention, rigged Hilbert spaces are also Hilbert spaces, so the same issues remain.\\
+    also Hilbert spaces, so the same issues remain.\\
     The authors do leave us with another possible alternative called Schwartz spaces\cite{becnel_schwartz_2015}, which are more restrictive than the Hilbert space. Indeed, they are formed exactly by removing all states whose (combinations of) momentum and position expectations diverge, thus losing completeness. However, no conclusion is drawn on the physicality of Schwartz spaces, and further research should be conducted to investigate the possibility.
     %% Word count: 625
 \end{multicols}
