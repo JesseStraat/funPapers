@@ -5,12 +5,13 @@
 \usetikzlibrary{calc}
 
 \begin{document}
-    \def\sketchmax{7}
+    \def\sketchmax{3}
     \begin{tikzpicture}
-        \begin{axis}[xmin=0,xmax=\sketchmax,yticklabel style={/pgf/number format/fixed},xtick pos=left,ytick pos=left,xlabel={$x$},ylabel={$\psi(x)$}]
+        \begin{axis}[xmin=0,xmax=2^\sketchmax,yticklabel style={/pgf/number format/fixed},xtick pos=left,ytick pos=left,xlabel={$x$},ylabel={$\psi(x)$}]
             \addplot[domain=0:0.5] {0};
-            \foreach \muVal in {1,2,...,\sketchmax}{
-                \edef\temp{\noexpand\addplot[domain=\muVal-0.5:\muVal+0.5,samples=100] {1/sqrt(0.0665431)*1/sqrt(2)^(\muVal)*e^(-1/(1-4*(\muVal-x)^2))};}
+            \foreach \muVal in {0,1,2,...,\sketchmax}{
+                \edef\temp{\noexpand\addplot[domain=2^\muVal-0.5:2^\muVal+0.5,samples=100] {1/sqrt(0.0665431)*1/sqrt(2)^(\muVal)*e^(-1/(1-4*(2^\muVal-x)^2))};
+                \noexpand\addplot[domain=2^\muVal+0.5:2^(\muVal+1)-0.5,samples=100] {0};}
                 \temp
             }
         \end{axis}
