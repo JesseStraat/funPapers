@@ -25,6 +25,7 @@
 \renewcommand{\abstractname}{}
 \maketitle
 %
+\vspace{-1cm}
 \begin{abstract}
 	The mathematical concept used to model quantum mechanics is too broad. It predicts the existence of quantum states that are not physical.
 \end{abstract}
@@ -50,7 +51,7 @@
     The authors of the article show that completeness gives quantum states that are physically impossible. For example, we can create a state whose position expectation value diverges: it is not defined. It may even go to infinity (see, for example, figure \ref{fig:sketch}). For physical reasons, these states should of course be excluded from our theory. The completeness condition, and hence the Hilbert space, is therefore unphysical.
     %% Alternatives
     \section*{Alternatives}
-    The question remains whether there exists a physical alternative to Hilbert spaces. One popular alternative to Hilbert spaces is the rigged Hilbert space\cite{de_la_madrid_role_2005}. However, as the authors mention, rigged Hilbert spaces are also Hilbert spaces, so the same issues remain.\\
+    The question remains whether there exists a physical alternative to Hilbert spaces. One popular alternative to Hilbert spaces is the rigged Hilbert space\cite{de_la_madrid_role_2005}. These are Hilbert spaces together with a certain restriction. However, rigged Hilbert spaces keep the original Hilbert spaces, so the same issues remain.\\
     \begin{figure}[H]
         \centering
         \resizebox{\columnwidth}{!}{
@@ -59,8 +60,8 @@
         \caption{A one-dimensional example of a quantum wave whose position expectation value diverges to infinity. The peaks exist at all powers of \(2\) with height proportional to \(2^{-x/2}\).}
         \label{fig:sketch}
     \end{figure}\noindent
-    The authors do leave us with another possible alternative called Schwartz spaces\cite{becnel_schwartz_2015}, which are more restrictive than the Hilbert space. Indeed, they are formed exactly by removing all states whose (combinations of) momentum and position expectations diverge, thus losing completeness. However, no conclusion is drawn on the physicality of Schwartz spaces, and further research should be conducted to investigate the possibility.
-    %% Word count: 625
+    The authors do leave us with another possible alternative called Schwartz spaces\cite{becnel_schwartz_2015}, which lose the original Hilbert space, keeping only the non-problematic states. Indeed, they are formed exactly by removing all states whose (combinations of) momentum and position expectations diverge, thus losing completeness. However, no conclusion is drawn on the physicality of Schwartz spaces, and further research should be conducted to investigate the possibility.
 \end{multicols}
+Word count: 625
 \printbibliography
 \end{document}
